@@ -1,0 +1,39 @@
+{% extends 'mainindex.html'%}
+{% load static %}
+{% block body_block %}
+      <link rel="stylesheet" href="{% static 'login.css' %}">
+
+      <div class="container">
+        <div class="jumbotron" >
+          {% if registered %}
+            <h1>Thank you for registering!</h1>
+          {% else %}
+          <form method="post" class="mail" action="{% url 'first_app:user_login' %}">
+            {% csrf_token %}
+            {# A more "HTML" way of creating the login form#}
+            <label for="username">Username:</label>
+            <br>
+            <input type="text" name="username" placeholder="">
+            <br>
+            <label for="password">Password</label>
+            <br>
+            <input type="password" name="password">
+            <br>
+            <input type="submit" name="" value="Login">
+              </form>
+        </div>
+  </div>
+        <div class="container">
+        <div class="jumbotron">      
+          <h2>SIGN UP.</h2>
+          <h3>IT'S QUICK AND EASY.</h3>
+          <form class="pass" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <input id="input" type="submit" name="" value="SIGNUP">
+          </form>
+        {% endif %}
+        </div>
+          </div>
+{% endblock %}
