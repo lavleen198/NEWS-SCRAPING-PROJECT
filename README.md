@@ -8,4 +8,5 @@ pip install pillow
 pip install bcrypt
 pip install django[argon2]
 
-and to finally run the project goto the folder in which all files are saved,through command line i.e cd filename in this case Myproject and then run python manage.py runserver
+and to finally run the project goto the folder in which all files are saved,through command line i.e cd filename in this case first_project
+and then run python manage.py runserver
